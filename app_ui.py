@@ -93,25 +93,6 @@ elif option == "INSERT RECORD":
             st.warning("FILL ALL BLANK!")
 
 # =========================
-elif option == "DELETE RECORD BY ID":
-    movie_id = st.number_input("Enter Movie ID", min_value=1, step=1)
-    if st.button("DELETE"):
-        
-        movies = app_db.delete_records_by_id(movie_id)
-
-        if not movies:
-            
-            st.warning("MOVIE NOT EXISTS!")
-
-        # elif len(movies) == 1:
-
-        result = app_db.delete_records_by_id(movie_id)
-
-        if result:
-            st.success("RECORD DELETED")
-        else:
-            st.session_state["delete_movies"] = movies
-# =========================
 elif option == "DELETE RECORD BY NAME":
 
     movie_name = st.text_input("Enter Movie Name")
@@ -227,6 +208,3 @@ elif option == "UPDATE RECORD BY NAME":
                 st.warning("MOVIE NOT EXISTS!")
         else:
             st.warning("FILL ALL BLANK!")
-
-
-
